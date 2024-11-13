@@ -1,0 +1,9 @@
+{
+	"name": "qa-df-test",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cc7869cc-54cf-43e8-ab04-cec58eaa1d39",
+		"tenantId": "80afa3f4-1563-46f1-a268-04f5fb610dd9"
+	}
+}
