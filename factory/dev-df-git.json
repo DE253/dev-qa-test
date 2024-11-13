@@ -1,0 +1,9 @@
+{
+	"name": "dev-df-git",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "37dcc694-7110-4f03-b405-b7e54d48eb49",
+		"tenantId": "80afa3f4-1563-46f1-a268-04f5fb610dd9"
+	}
+}
