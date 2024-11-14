@@ -1,0 +1,41 @@
+{
+	"name": "srcfiles",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dev_ls_backend",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "accounts.csv",
+				"folderPath": "Day 1",
+				"fileSystem": "backendstorage"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "account_id",
+				"type": "String"
+			},
+			{
+				"name": "customer_id",
+				"type": "String"
+			},
+			{
+				"name": "account_type",
+				"type": "String"
+			},
+			{
+				"name": "balance",
+				"type": "String"
+			}
+		]
+	}
+}
