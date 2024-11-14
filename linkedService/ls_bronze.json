@@ -2,11 +2,16 @@
 	"name": "ls_bronze",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"sink_ls": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://cadfstorage.dfs.core.windows.net/",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDlCMUEwMzY3LTdDNTctNEMzRC04MjY2LUI1QUNEOTNBRDIyRl9jNjIwZGJhNi0yOGFiLTQ0MjUtODI0NS1lNTQwNDFhY2EyMjEiDQp9"
+			"url": "@{linkedService().sink_ls}",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDlCMUEwMzY3LTdDNTctNEMzRC04MjY2LUI1QUNEOTNBRDIyRl83ZDkyOGNhMS03ZTBkLTQ4NDUtYjY4NS1jYmRkNTM3ZTBhMWYiDQp9"
 		}
 	}
 }
