@@ -26,41 +26,31 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "srcfiles",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "bronze_sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sourcefolder": "Day 1",
+							"filename": "accounts.csv"
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"targetcontainer": {
+				"type": "string"
+			},
+			"targetfolder": {
+				"type": "string"
+			},
+			"targetfilename": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

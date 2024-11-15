@@ -2,17 +2,42 @@
 	"name": "srcfiles",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "dev_ls_backend",
-			"type": "LinkedServiceReference"
+			"referenceName": "backend_ls",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"srccontainer": "https://sampledata253.dfs.core.windows.net/",
+				"srcfolder": "Day 1",
+				"srcfilename": "accounts.csv"
+			}
+		},
+		"parameters": {
+			"sourcecontainer": {
+				"type": "string"
+			},
+			"sourcefolder": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "accounts.csv",
-				"folderPath": "Day 1",
-				"fileSystem": "backendstorage"
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().sourcefolder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().sourcecontainer",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
