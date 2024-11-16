@@ -52,10 +52,22 @@
 						"referenceName": "srcfiles",
 						"type": "DatasetReference",
 						"parameters": {
-							"sourcecontainer": "backendstorage",
-							"sourcefolder": "Day 1",
-							"filename": "accounts.csv",
-							"srcaccount": "https://sampledata253.dfs.core.windows.net/"
+							"sourcecontainer": {
+								"value": "@pipeline().parameters.srccontainer",
+								"type": "Expression"
+							},
+							"sourcefolder": {
+								"value": "@pipeline().parameters.srcfolder",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.srcfilename",
+								"type": "Expression"
+							},
+							"srcaccount": {
+								"value": "@pipeline().parameters.srcaccount",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -64,8 +76,14 @@
 						"referenceName": "bronze_sink",
 						"type": "DatasetReference",
 						"parameters": {
-							"targetcontainer": "bronze",
-							"targetacct": "https://cadfstorage.dfs.core.windows.net/"
+							"targetcontainer": {
+								"value": "@pipeline().parameters.targetcontainer",
+								"type": "Expression"
+							},
+							"targetacct": {
+								"value": "@pipeline().parameters.targetaccount",
+								"type": "Expression"
+							}
 						}
 					}
 				]
@@ -73,6 +91,21 @@
 		],
 		"parameters": {
 			"targetcontainer": {
+				"type": "string"
+			},
+			"targetaccount": {
+				"type": "string"
+			},
+			"srcaccount": {
+				"type": "string"
+			},
+			"srcfolder": {
+				"type": "string"
+			},
+			"srcfilename": {
+				"type": "string"
+			},
+			"srccontainer": {
 				"type": "string"
 			}
 		},
