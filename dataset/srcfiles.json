@@ -5,9 +5,10 @@
 			"referenceName": "backend_ls",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"srccontainer": "https://sampledata253.dfs.core.windows.net/",
-				"srcfolder": "Day 1",
-				"srcfilename": "accounts.csv"
+				"strgacct": {
+					"value": "@dataset().srcaccount",
+					"type": "Expression"
+				}
 			}
 		},
 		"parameters": {
@@ -18,6 +19,9 @@
 				"type": "string"
 			},
 			"filename": {
+				"type": "string"
+			},
+			"srcaccount": {
 				"type": "string"
 			}
 		},

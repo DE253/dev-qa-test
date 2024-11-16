@@ -5,11 +5,17 @@
 			"referenceName": "bronze_ls",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"trgtcontainer": "https://cadfstorage.dfs.core.windows.net/"
+				"bronze_acct": {
+					"value": "@dataset().targetacct",
+					"type": "Expression"
+				}
 			}
 		},
 		"parameters": {
 			"targetcontainer": {
+				"type": "string"
+			},
+			"targetacct": {
 				"type": "string"
 			}
 		},

@@ -26,15 +26,46 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "srcfiles",
 						"type": "DatasetReference",
 						"parameters": {
+							"sourcecontainer": "backendstorage",
 							"sourcefolder": "Day 1",
-							"filename": "accounts.csv"
+							"filename": "accounts.csv",
+							"srcaccount": "https://sampledata253.dfs.core.windows.net/"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "bronze_sink",
+						"type": "DatasetReference",
+						"parameters": {
+							"targetcontainer": "bronze",
+							"targetacct": "https://cadfstorage.dfs.core.windows.net/"
 						}
 					}
 				]
@@ -42,12 +73,6 @@
 		],
 		"parameters": {
 			"targetcontainer": {
-				"type": "string"
-			},
-			"targetfolder": {
-				"type": "string"
-			},
-			"targetfilename": {
 				"type": "string"
 			}
 		},
