@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Wait1",
+				"name": "Wait 2",
 				"description": "Wait for 5 seconds",
 				"type": "Wait",
 				"dependsOn": [],

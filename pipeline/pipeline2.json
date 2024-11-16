@@ -50,17 +50,65 @@
 				"inputs": [
 					{
 						"referenceName": "srcfiles",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sourcecontainer": {
+								"value": "@pipeline().parameters.srccontainer",
+								"type": "Expression"
+							},
+							"sourcefolder": {
+								"value": "@pipeline().parameters.srcfolder",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.srcfilename",
+								"type": "Expression"
+							},
+							"srcaccount": {
+								"value": "@pipeline().parameters.srcaccount",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "bronze_sink",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"targetcontainer": {
+								"value": "@pipeline().parameters.targetcontainer",
+								"type": "Expression"
+							},
+							"targetacct": {
+								"value": "@pipeline().parameters.targetaccount",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"targetcontainer": {
+				"type": "string"
+			},
+			"targetaccount": {
+				"type": "string"
+			},
+			"srcaccount": {
+				"type": "string"
+			},
+			"srcfolder": {
+				"type": "string"
+			},
+			"srcfilename": {
+				"type": "string"
+			},
+			"srccontainer": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }

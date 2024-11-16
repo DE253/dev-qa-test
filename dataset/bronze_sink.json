@@ -2,15 +2,32 @@
 	"name": "bronze_sink",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_bronze",
-			"type": "LinkedServiceReference"
+			"referenceName": "bronze_ls",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"bronze_acct": {
+					"value": "@dataset().targetacct",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"targetcontainer": {
+				"type": "string"
+			},
+			"targetacct": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "bronze"
+				"fileSystem": {
+					"value": "@dataset().targetcontainer",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
