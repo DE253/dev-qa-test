@@ -1,0 +1,70 @@
+{
+	"name": "srcfiles",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "backend_ls",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"strgacct": {
+					"value": "@dataset().srcaccount",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"sourcecontainer": {
+				"type": "string"
+			},
+			"sourcefolder": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			},
+			"srcaccount": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().sourcefolder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().sourcecontainer",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "account_id",
+				"type": "String"
+			},
+			{
+				"name": "customer_id",
+				"type": "String"
+			},
+			{
+				"name": "account_type",
+				"type": "String"
+			},
+			{
+				"name": "balance",
+				"type": "String"
+			}
+		]
+	}
+}
